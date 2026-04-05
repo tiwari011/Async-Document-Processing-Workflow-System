@@ -29,6 +29,7 @@ export async function getDocuments(): Promise<DocumentItem[]> {
 }
 
 export async function getDocumentById(id: string): Promise<DocumentItem> {
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
   const response = await fetch(`${API_BASE_URL}/documents/${id}`);
 
   if (!response.ok) {
@@ -93,4 +94,5 @@ export async function retryDocument(id: string | number): Promise<DocumentItem> 
   }
 
   return response.json();
+}
 }
